@@ -4,8 +4,8 @@
  */
 #ifndef GAMEMODE_H
 #define GAMEMODE_H
-#include "GameMode.h"
-#include "GameFunctions.cpp"
+#include "GameFunctions.h"
+
 using namespace std;
 class GameMode{
 public:

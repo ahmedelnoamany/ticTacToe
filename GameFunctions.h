@@ -5,6 +5,7 @@
 #ifndef GAMEFUNCTIONS_H
 #define GAMEFUNCTIONS_H
 
+using namespace std;
 const int boardSize = 4; //4x4
 class GameFunctions {
 

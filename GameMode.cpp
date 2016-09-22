@@ -2,16 +2,18 @@
  * File:   GameMode.cpp
  * Author: Ahmed Elnoamany
  */
-
 #include "GameMode.h"
+#include "GameFunctions.h"
 #include <stdio.h>
 #include <string>
 #include <random>
 #include <ctime>
 using namespace std;
 
-GameMode::GameMode() {
-    
+GameMode::GameMode(){
+    gameCounter = 0;
+    gameOver = false;
+    GameFunctions gfun;
 }
 
 void GameMode::easyMode(){

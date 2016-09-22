@@ -2,11 +2,11 @@
  * File:   main.cpp
  * Author: Ahmed Elnoamany
  */
+#include "GameMode.h"
+#include "GameFunctions.h"
 #include <cstdlib>
 #include <string>
 #include <stdio.h>
-
-#include "GameMode.h"
 using namespace std;
 
 int main() {
@@ -20,8 +20,8 @@ int main() {
         printf("1.Easy\n");
         printf("2.Medium\n");
         printf("3.Hard\n");
-        scanf("%d", %difficulty);
-        case(difficulty){
+        scanf("%d", &difficulty);
+        switch(difficulty){
             case 1:
                 mode.easyMode();
                 break;
@@ -36,6 +36,5 @@ int main() {
         }
         //Add some way of exiting game.
     }
-    return 0;
 }
 

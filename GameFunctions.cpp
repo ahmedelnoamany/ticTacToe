@@ -9,7 +9,12 @@
 #include <string>
 #include <random>
 #include <ctime>
+#include <iostream>
 using namespace std;
+
+GameFunctions::GameFunctions(){
+    
+}
 
 void GameFunctions::clearGameBoard(){
     for(int i = 0; i<boardSize; i++){
@@ -19,12 +24,14 @@ void GameFunctions::clearGameBoard(){
 }
 
 void GameFunctions::drawGameBoard(){
+    printf("\n");
     for(int i = 0; i<boardSize; i++)
-        printf(" %d\n", i+1);
+        printf(" %d",i+1);
+    printf("\n");
     for(int i = 0; i<boardSize; i++){
-        printf("%d", i+1);
+        printf("%d",i+1);
         for(int j = 0; j<boardSize; j++){
-            printf("|%c\n", gameBoard[i][j]);
+            printf("|%c",gameBoard[i][j]);
         }
         printf("|\n");
     }

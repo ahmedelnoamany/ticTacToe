@@ -16,6 +16,11 @@ public:
     void xMove(int, int);   //Makes a move with X.
     void oMove(int, int);   //Makes a move with O.
     bool checkEmptySpot(int, int); //Checks if move is empty.
+    bool gameWinner();      //Finds the game winner.
+    bool isTie();             //Checks if game ends as a tie.
+    char winnerInRows();
+    char winnerInColumns();
+    char winnerInDiagonals();
 private:
 
 };

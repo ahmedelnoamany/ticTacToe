@@ -17,6 +17,7 @@ public:
     void mediumMode();
     void hardMode();
     void playerMove();
+    void endGame(char);
 private:
 
 };

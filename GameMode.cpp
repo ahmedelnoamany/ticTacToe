@@ -12,12 +12,19 @@ GameMode::GameMode() {
 void GameMode::easyMode(){
     gfun.clearGameBoard();
     gameOver = false;
-    
+    char gameWinner = ' ';
     if(gameCounter %2 == 0){ //even game, player first.
         while(gameOver !=true){
             gfun.drawGameBoard();
-            
-            
+            playerMove();
+            if(gfun.gameWinner() == true){
+                gameWinner = 'P';
+            }
+            if(gfun.isTie() == true){
+                gameWinner = 'T';
+            }
+            endGame(gameWinner);
+            return; 
         }
     }
 }
@@ -47,4 +54,15 @@ void GameMode::playerMove(){
     gfun.xMove(x,y);
 }
 
-
+void GameMode::endGame(char winner){
+    gfun.drawGameBoard();
+    printf("\n");
+    gameOver = true;
+    gameCounter += 1;
+    if(winner == 'P')
+        printf("You Won\n");
+    if(winner == 'C')
+        printf("You Lose\n");
+    else
+        printf("You Tie\n");
+}

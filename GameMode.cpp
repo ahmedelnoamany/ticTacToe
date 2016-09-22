@@ -4,6 +4,11 @@
  */
 
 #include "GameMode.h"
+#include <stdio.h>
+#include <string>
+#include <random>
+#include <ctime>
+using namespace std;
 
 GameMode::GameMode() {
     
@@ -12,21 +17,27 @@ GameMode::GameMode() {
 void GameMode::easyMode(){
     gfun.clearGameBoard();
     gameOver = false;
-    char gameWinner = ' ';
+    char winner = ' ';
     if(gameCounter %2 == 0){ //even game, player first.
         while(gameOver !=true){
             gfun.drawGameBoard();
             playerMove();
-            if(gfun.gameWinner() == true){
-                gameWinner = 'P';
+            if(gfun.gameWinner() == true || gfun.isTie() == true){
+                if(gfun.gameWinner() == true){
+                    winner = 'P';
+                }
+                if(gfun.isTie() == true){
+                    winner = 'T';
+                }
+                endGame(winner);
+                return; 
             }
-            if(gfun.isTie() == true){
-                gameWinner = 'T';
+            else{
+                gfun.drawGameBoard();
+                cpuMove();
             }
-            endGame(gameWinner);
-            return; 
-        }
     }
+}
 }
 
 void GameMode::mediumMode(){
@@ -46,12 +57,25 @@ void GameMode::playerMove(){
         scanf("%d", &y);
         x -= 1;
         y -= 1;
-        if(gfun.checkEmptySpot(x, y)! = true)//Check if spot is empty
+        if(gfun.checkEmptySpot(x, y) != true)//Check if spot is empty
             printf("This move has already been played\n");
         else
             moved = true;
     }
     gfun.xMove(x,y);
+}
+
+void GameMode::cpuMove(){
+    int x, y;
+    bool moved = false;
+    while(moved != true){
+        x = random(0, boardSize);
+        y = random(0, boardSize);
+        if(gfun.checkEmptySpot(x,y) == true)
+            moved = true;
+    }
+    gfun.printMove(x+1,y+1);
+    gfun.oMove(x,y);
 }
 
 void GameMode::endGame(char winner){

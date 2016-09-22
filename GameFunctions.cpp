@@ -6,6 +6,9 @@
 
 #include "GameFunctions.h"
 #include <stdio.h>
+#include <string>
+#include <random>
+#include <ctime>
 using namespace std;
 
 void GameFunctions::clearGameBoard(){
@@ -40,6 +43,10 @@ void GameFunctions::xMove(int x, int y){
 
 void GameFunctions::oMove(int x,int y){
     gameBoard[x][y] = 'O';
+}
+
+void GameFunctions::printMove(int x, int y){
+    printf("Move is row %d, column %d\n", x, y);
 }
 
 bool GameFunctions::gameWinner(){
@@ -127,6 +134,15 @@ char GameFunctions::winnerInDiagonals(){
         else if(os == boardSize)
             return 'O';
         }
+
+int GameFunctions::random(int min, int max){
+    static bool first = true;
+    if(first){
+        srand(time(NULL));
+        first = false;
+    }
+    return min+rand() %(max - min);
+}
 
 
 

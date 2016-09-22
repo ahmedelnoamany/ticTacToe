@@ -15,12 +15,15 @@ public:
     void drawGameBoard();   //Draws the Game Board.
     void xMove(int, int);   //Makes a move with X.
     void oMove(int, int);   //Makes a move with O.
+    void printMove(int, int); //prints move.
     bool checkEmptySpot(int, int); //Checks if move is empty.
     bool gameWinner();      //Finds the game winner.
-    bool isTie();             //Checks if game ends as a tie.
-    char winnerInRows();
-    char winnerInColumns();
-    char winnerInDiagonals();
+    bool isTie();               //Checks if game ends as a tie.
+    char winnerInRows();        //Checks for winner in all rows.
+    char winnerInColumns();     //Chacks for winner in all columns.
+    char winnerInDiagonals();   ///Checks for winner in right and left diagonal.
+    int random(int, int);       //generates a random integer.
+    
 private:
 
 };

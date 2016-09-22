@@ -17,6 +17,7 @@ public:
     void mediumMode();
     void hardMode();
     void playerMove();
+    void cpuMove();
     void endGame(char);
 private:
 

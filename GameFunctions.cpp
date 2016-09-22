@@ -135,7 +135,7 @@ char GameFunctions::winnerInDiagonals(){
             return 'O';
         }
 
-int GameFunctions::random(int min, int max){
+int GameFunctions::generateRandom(int min, int max){
     static bool first = true;
     if(first){
         srand(time(NULL));

@@ -35,9 +35,50 @@ void GameMode::easyMode(){
             else{
                 gfun.drawGameBoard();
                 cpuMove();
+                if(gfun.gameWinner() == true || gfun.isTie() == true){
+                if(gfun.gameWinner() == true){
+                    winner = 'C';
+                }
+                if(gfun.isTie() == true){
+                    winner = 'T';
+                }
+                endGame(winner);
+                return;
+                }
             }
+        }
     }
-}
+    else{  //Odd game, CPU first
+        gfun.clearGameBoard();
+        while(gameOver != true){
+            gfun.drawGameBoard();
+            cpuMove();
+            if(gfun.gameWinner() == true || gfun.isTie() == true){
+                if(gfun.gameWinner() == true){
+                    winner = 'C';
+                }
+                if(gfun.isTie() == true){
+                    winner = 'T';
+                } 
+                endGame(winner);
+                return;
+            }
+            else{
+                gfun.drawGameBoard();
+                playerMove();
+                if(gfun.gameWinner() == true || gfun.isTie() == true){
+                    if(gfun.gameWinner() == true){
+                        winner = 'P';
+                    }
+                    if(gfun.isTie() == true){
+                        winner = 'T';
+                    }
+                    endGame(winner);
+                    return;
+                }
+            }
+        }
+    }
 }
 
 void GameMode::mediumMode(){
@@ -69,8 +110,8 @@ void GameMode::cpuMove(){
     int x, y;
     bool moved = false;
     while(moved != true){
-        x = random(0, boardSize);
-        y = random(0, boardSize);
+        x = gfun.generateRandom(0, boardSize);
+        y = gfun.generateRandom(0, boardSize);
         if(gfun.checkEmptySpot(x,y) == true)
             moved = true;
     }

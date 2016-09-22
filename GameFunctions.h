@@ -22,7 +22,7 @@ public:
     char winnerInRows();        //Checks for winner in all rows.
     char winnerInColumns();     //Chacks for winner in all columns.
     char winnerInDiagonals();   ///Checks for winner in right and left diagonal.
-    int random(int, int);       //generates a random integer.
+    int generateRandom(int, int);       //generates a random integer.
     
 private:
 

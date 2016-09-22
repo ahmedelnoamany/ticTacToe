@@ -11,9 +11,12 @@ class GameMode{
 public:
     GameMode();
     GameFunctions gfun;
+    bool gameOver;
+    int gameCounter;
     void easyMode();
     void mediumMode();
     void hardMode();
+    void playerMove();
 private:
 
 };

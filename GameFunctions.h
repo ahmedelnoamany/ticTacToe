@@ -10,8 +10,12 @@ class GameFunctions {
 
 public:
     GameFunctions();
-    char gameBoard[boardSize][boardSize];
-    void clearGameBoard();
+    char gameBoard[boardSize][boardSize];  //The Board.
+    void clearGameBoard();  //Clears the Game Board.
+    void drawGameBoard();   //Draws the Game Board.
+    void xMove(int, int);   //Makes a move with X.
+    void oMove(int, int);   //Makes a move with O.
+    bool checkEmptySpot(int, int); //Checks if move is empty.
 private:
 
 };

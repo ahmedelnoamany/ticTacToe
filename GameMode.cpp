@@ -84,7 +84,32 @@ void GameMode::easyMode(){
 }
 
 void GameMode::mediumMode(){
-    
+    gfun.clearGameBoard();
+    gameOver = false;
+    char winner = ' ';
+    if(gameCounter %2 == 0){ //even game, player first.
+        while(gameOver !=true){
+            gfun.drawGameBoard();
+            playerMove();
+            if(gfun.gameWinner() == true || gfun.isTie() == true){
+                if(gfun.gameWinner() == true){
+                    winner = 'P';
+                }
+                if(gfun.isTie() == true){
+                    winner = 'T';
+                }
+                endGame(winner);
+                return; 
+            }
+            else{
+                gfun.drawGameBoard();
+                if(gfun.gameWinner() == true){
+                    
+                    
+                }
+            }
+        }
+    }
 }
 
 void GameMode::hardMode(){

@@ -28,6 +28,10 @@ public:
     int numInCol(int, char);     //Number of characters in column.
     int numInLeftDiag(char);     //Number of characters in left diagonal.
     int numInRightDiag(char);    //Number of characters in right diagonal.
+    int findEmptyInRow(int);     //Finds Empty spot in row.
+    int findEmptyInCol(int);     //Finds Empty spot in column.
+    int findEmptyInLDiag();   //Finds Empty spot in left diagonal.
+    int findEmptyInRDiag();   //Finds Empty spot in right diagonal.
     int generateRandom(int, int);       //generates a random integer.
     void cpuWin();      //Checks if win is available for CPU and makes move.
 private:

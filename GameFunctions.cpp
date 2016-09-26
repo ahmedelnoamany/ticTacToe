@@ -155,8 +155,11 @@ void GameFunctions::cpuWin(){
     int x, y;
     if(winType == 1){  //1 = CPU win available in row.
         for(int i = 0; i< boardSize; i++){
-            if(numInRow)
+            if(numInRow(i, 'O') == boardSize -1 && numinRow(i, 'X')== 0){
+                x = i;
+            }
         }
+        y = 
     }
     else if(winType == 2){  //2 = CPU win available in column.
         
@@ -205,3 +208,42 @@ int GameFunctions::numInRightDiag(char target){
     return count;
 }
 
+int GameFunctions::findEmptyInRow(int row){
+    int emptySpot = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[row][i] == 'O'){
+            emptySpot++;
+        }
+    }
+    return emptySpot;
+}
+
+int GameFunctions::findEmptyInCol(int col){
+    int emptySpot = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[i][col] == 'O'){
+            emptySpot++;
+        }
+    }
+    return emptySpot;
+}
+
+int GameFunctions::findEmptyInLDiag(){
+    int emptySpot = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[i][i] == 'O'){
+            emptySpot++;
+        }
+    }
+    return emptySpot;
+}
+
+int GameFunctions::findEmptyInRDiag(){
+    int emptySpot = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[i][boardSize -1 -i] == 'O'){
+            emptySpot++;
+        }
+    }
+    return emptySpot;
+}

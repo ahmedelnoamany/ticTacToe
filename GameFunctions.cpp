@@ -155,20 +155,31 @@ void GameFunctions::cpuWin(){
     int x, y;
     if(winType == 1){  //1 = CPU win available in row.
         for(int i = 0; i< boardSize; i++){
-            if(numInRow(i, 'O') == boardSize -1 && numinRow(i, 'X')== 0){
+            if(numInRow(i, 'O') == boardSize -1 && numInRow(i, 'X')== 0){
                 x = i;
             }
         }
-        y = 
+        y = findEmptyInRow(x);
+        oMove(x,y);
     }
     else if(winType == 2){  //2 = CPU win available in column.
-        
+       for(int i = 0; i<boardSize; i++){
+           if(numInCol(i, 'O') == boardSize -1 && numInCol(i,'X') == 0 ){
+               y = i;
+           }
+       } 
+       x = findEmptyInCol(y);
+       oMove(x,y);
     }
     else if(winType == 3){  //3 = CPU win available in right diagonal.
-        
+        x = findEmptyInRDiag();
+        y = x;
+        oMove(x,y);
     }
     else{                   //CPU win available in left diagonal.
-        
+        x = findEmptyInLDiag();
+        y = boardSize -1 - x;
+        oMove(x,y);
     }
 }
 

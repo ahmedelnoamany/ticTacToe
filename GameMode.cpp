@@ -104,9 +104,45 @@ void GameMode::mediumMode(){
             else{
                 gfun.drawGameBoard();
                 if(gfun.gameWinner() == true){
-                    
-                    
+                    gfun.cpuWin();
+                    endGame('C');
+                    return;  
                 }
+                else{
+                    cpuMove();
+                    if(gfun.isTie() == true){
+                        endGame('T');
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    else{
+        gfun.clearGameBoard();
+        while(gameOver != true){
+            gfun.drawGameBoard();
+            if(gfun.gameWinner() == true){
+                gfun.cpuWin();
+                endGame('C');
+                return;
+            }
+            else{
+                cpuMove();
+                if(gfun.isTie() == true){
+                    endGame('T');
+                    return;
+                }
+            }
+            gfun.drawGameBoard();
+            playerMove();
+            if(gfun.gameWinner()== true || gfun.isTie() == true){
+                if(gfun.gameWinner() == true)
+                    winner = 'P';
+                else
+                    winner = 'T';
+                endGame(winner);
+                return;
             }
         }
     }

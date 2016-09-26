@@ -151,5 +151,57 @@ int GameFunctions::generateRandom(int min, int max){
     return min+rand() %(max - min);
 }
 
+void GameFunctions::cpuWin(){
+    int x, y;
+    if(winType == 1){  //1 = CPU win available in row.
+        for(int i = 0; i< boardSize; i++){
+            if(numInRow)
+        }
+    }
+    else if(winType == 2){  //2 = CPU win available in column.
+        
+    }
+    else if(winType == 3){  //3 = CPU win available in right diagonal.
+        
+    }
+    else{                   //CPU win available in left diagonal.
+        
+    }
+}
 
+int GameFunctions::numInRow(int row, char target){
+    int count = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[row][i] == target)
+            count++;
+    }
+    return count;
+}
+
+int GameFunctions::numInCol(int col, char target){
+    int count = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[i][col] == target)
+            count++;
+    }
+    return count;
+}
+
+int GameFunctions::numInLeftDiag(char target){
+    int count = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[i][boardSize - 1 - i] == target)
+            count++;
+    }
+    return count;
+}
+
+int GameFunctions::numInRightDiag(char target){
+    int count = 0;
+    for(int i = 0; i<boardSize; i++){
+        if(gameBoard[i][boardSize -1 -i] == target)
+            count++;
+    }
+    return count;
+}
 

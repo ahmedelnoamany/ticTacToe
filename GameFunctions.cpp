@@ -258,3 +258,13 @@ int GameFunctions::findEmptyInRDiag(){
     }
     return emptySpot;
 }
+
+void GameFunctions::smartMoveFlags(){
+    if(numInRow(0,'X') > 0 && numInCol(0,'X') > 0 && numInRightDiag('X') > 0)
+        leftTopCorner = true;
+    if(numInRow(boardSize-1, 'X') > 0 && numInLeftDiag('X') > 0)
+        bottomLeftCorner = true;
+    if(numInCol(boardSize-1, 'X') > 0)
+        rightTopCorner = true;
+
+}

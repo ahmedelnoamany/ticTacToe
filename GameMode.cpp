@@ -149,6 +149,70 @@ void GameMode::mediumMode(){
 }
 
 void GameMode::hardMode(){
+    gfun.clearGameBoard();
+    gameOver = false;
+    char winner = ' ';
+    if(gameCounter %2 == 0){ //even game, player first.
+        while(gameOver !=true){
+            gfun.drawGameBoard();
+            playerMove();
+            gfun.SmartMoveFlags();
+            if(gfun.gameWinner() == true || gfun.isTie() == true){
+                if(gfun.gameWinner() == true){
+                    winner = 'P';
+                }
+                if(gfun.isTie() == true){
+                    winner = 'T';
+                }
+                endGame(winner);
+                return; 
+            }
+            else{
+                gfun.drawGameBoard();
+                if(gfun.gameWinner() == true){
+                    gfun.cpuWin();
+                    endGame('C');
+                    return;  
+                }
+                else{
+                    cpuMove();
+                    if(gfun.isTie() == true){
+                        endGame('T');
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    else{
+        gfun.clearGameBoard();
+        while(gameOver != true){
+            gfun.drawGameBoard();
+            if(gfun.gameWinner() == true){
+                gfun.cpuWin();
+                endGame('C');
+                return;
+            }
+            else{
+                cpuMove();
+                if(gfun.isTie() == true){
+                    endGame('T');
+                    return;
+                }
+            }
+            gfun.drawGameBoard();
+            playerMove();
+            if(gfun.gameWinner()== true || gfun.isTie() == true){
+                if(gfun.gameWinner() == true)
+                    winner = 'P';
+                else
+                    winner = 'T';
+                endGame(winner);
+                return;
+            }
+        }
+    }
+}
     
 }
 

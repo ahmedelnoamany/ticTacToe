@@ -13,11 +13,16 @@ public:
     GameFunctions();
     char gameBoard[boardSize][boardSize];  //The Board.
     int winType;            //Who wins. 
+    bool leftTopCorner;
+    bool rightTopCorner;
+    bool bottomLeftCorner;
+    bool bottomRightCorner;
     void clearGameBoard();  //Clears the Game Board.
     void drawGameBoard();   //Draws the Game Board.
     void xMove(int, int);   //Makes a move with X.
     void oMove(int, int);   //Makes a move with O.
     void printMove(int, int); //prints move.
+    void smartMoveFlags();  //Checks if there are open smart moves at corners of board.
     bool checkEmptySpot(int, int); //Checks if move is empty.
     bool gameWinner();      //Finds the game winner.
     bool isTie();               //Checks if game ends as a tie.
